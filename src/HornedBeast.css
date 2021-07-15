@@ -1,0 +1,9 @@
+main {
+  background-color: gainsboro;
+}
+.cards {
+  width: 18rem;
+}
+.card img {
+  border: 2px solid purple;
+}
