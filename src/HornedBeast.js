@@ -46,9 +46,6 @@ class HornedBeast extends React.Component {
         <Card.Body>
           <p>{this.state.favorited ? `${this.state.favorited} 💜` : ''}</p>
           <p onClick={this.favorite}>{this.props.description}</p>
-
-          {/* <Button variant="outline-success" onClick={this.addFavorite}>Favorite</Button>
-          <Button variant="outline-success" onClick={this.unFavorite}>Unfavorite</Button> */}
         </Card.Body>
       </Card>
     );
