@@ -1,22 +1,29 @@
 import React from 'react';
+import data from './data.json';
 import HornedBeast from './HornedBeast.js'
+import CardColumns from 'react-bootstrap/CardColumns';
 
 class Main extends React.Component {
+  
   render() {
+    let renderedBeasts = [];
+
+    data.forEach((beastComponents, index) => {
+        let beast = <HornedBeast
+          key={index}
+          title={beastComponents.title}
+          imageUrl={beastComponents.image_url}
+          description={beastComponents.description}
+        />
+        renderedBeasts.push(beast);
+      });
     return (
-      <>
-        <HornedBeast
-          title="Nick Carter"
-          imageUrl="https://i.pinimg.com/originals/29/d1/23/29d123728aeabb05c078c33c88a6bdb8.jpg"
-          description="Wild animal in nature"
-        />
-        <HornedBeast
-          title="The Dark Lord"
-          imageUrl="https://www.telegraph.co.uk/content/dam/on-demand/2018/11/14/sabrinadarklord_trans_NvBQzQNjv4BqSKF59OnKiLVrHvhXZqwEuMDfOYGcSuqswKO1-ryZkcw.jpg?imwidth=480"
-          description="The wildest of beasts"
-        />
-      </>
-    )
+      <main>
+        <CardColumns>
+          {renderedBeasts}
+        </CardColumns>
+      </main>
+    );
   }
 }
 export default Main;
