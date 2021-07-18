@@ -1,8 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
-
 import './HornedBeast.css';
 
 class HornedBeast extends React.Component {
@@ -16,36 +13,29 @@ class HornedBeast extends React.Component {
   addFavorite = () => {
     this.setState({
       favorited: this.state.favorited + 1,
-    })
-  }
-
-  unFavorite = () => {
-    this.setState({
-      favorited: this.state.favorited - 1,
-    })
+    });
   }
 
   favorite = () => {
     this.setState({
       showFavorite: true,
-    })
+    });
   }
   render() {
     return (
       <Card className="cards">
-        <h3>{this.props.title}</h3>
+        <h3>{this.props.beast.title}</h3>
         <Card.Img
           variant="top"
-          onClick={() => {
-            this.addFavorite();
-          }}
-          src={this.props.imageUrl}
-          alt={this.props.description}
-          title={this.props.title}
+          onClick={() => this.props.handleShowModal(this.props.beast)}
+          src={this.props.beast.image_url}
+          alt={this.props.beast.description}
+          title={this.props.beast.title}
         />
         <Card.Body>
+          <button onClick={this.addFavorite}>Add To Favorites</button>
           <p>{this.state.favorited ? `${this.state.favorited} 💜` : ''}</p>
-          <p onClick={this.favorite}>{this.props.description}</p>
+          <p onClick={this.favorited}>{this.props.beast.description}</p>
         </Card.Body>
       </Card>
     );

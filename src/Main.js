@@ -1,24 +1,33 @@
 import React from 'react';
-import data from './data.json';
-import HornedBeast from './HornedBeast.js'
+import HornedBeast from './HornedBeast.js';
 import CardColumns from 'react-bootstrap/CardColumns';
 
 class Main extends React.Component {
-  
-  render() {
-    let renderedBeasts = [];
+  constructor(props){
+    super(props);
+    this.state = {
+      favorites: 0,
+    }
+  }
 
-    data.forEach((beastComponents, index) => {
-        let beast = <HornedBeast
-          key={index}
-          title={beastComponents.title}
-          imageUrl={beastComponents.image_url}
-          description={beastComponents.description}
-        />
-        renderedBeasts.push(beast);
-      });
+  manageFavorites = () => {
+    this.setState({
+      Favorites: this.state.favorites + 1,
+    });
+  }
+
+  render() {
+    let renderedBeasts = this.props.data.map((beast, index) => (<HornedBeast
+        handleShowModal={this.props.handleShowModal}
+        favoriteHandler={this.state.favorites}
+        key={index}
+        beast={beast}
+      />)
+    );
+  
     return (
       <main>
+        <h2>Favorited Beasts: {this.state.favorites}</h2>
         <CardColumns>
           {renderedBeasts}
         </CardColumns>
