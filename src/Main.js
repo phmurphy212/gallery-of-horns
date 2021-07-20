@@ -6,20 +6,14 @@ class Main extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      favorites: 0,
+      // favorites: 0,
     }
-  }
-
-  manageFavorites = () => {
-    this.setState({
-      Favorites: this.state.favorites + 1,
-    });
   }
 
   render() {
     let renderedBeasts = this.props.data.map((beast, index) => (<HornedBeast
         handleShowModal={this.props.handleShowModal}
-        favoriteHandler={this.state.favorites}
+        // favorites={this.props.favorites}
         key={index}
         beast={beast}
       />)
@@ -27,7 +21,7 @@ class Main extends React.Component {
   
     return (
       <main>
-        <h2>Favorited Beasts: {this.state.favorites}</h2>
+        {/* <h2>Favorited Beasts: {this.state.favorites}</h2> */}
         <CardColumns>
           {renderedBeasts}
         </CardColumns>
