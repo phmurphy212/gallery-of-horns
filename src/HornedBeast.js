@@ -6,21 +6,10 @@ class HornedBeast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      favorited: 0,
-      showFavorite: false,
+      // favorites: 0,
     }
   }
-  addFavorite = () => {
-    this.setState({
-      favorited: this.state.favorited + 1,
-    });
-  }
 
-  favorite = () => {
-    this.setState({
-      showFavorite: true,
-    });
-  }
   render() {
     return (
       <Card className="cards">
@@ -33,9 +22,8 @@ class HornedBeast extends React.Component {
           title={this.props.beast.title}
         />
         <Card.Body>
-          <button onClick={this.addFavorite}>Add To Favorites</button>
-          <p>{this.state.favorited ? `${this.state.favorited} 💜` : ''}</p>
-          <p onClick={this.favorited}>{this.props.beast.description}</p>
+          {/* <button onClick={this.props.favorites}>Add To Favorites</button> */}
+          <p>{this.props.beast.description}</p>
         </Card.Body>
       </Card>
     );
