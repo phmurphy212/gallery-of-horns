@@ -12,15 +12,8 @@ class App extends React.Component {
       this.state = {
         showModal: false,
         selectedBeast: {},
-        // favorites: 0,
       }
   }
-
-  // manageFavorites = () => {
-  //   this.setState({
-  //     favorites: this.state.favorites + 1,
-  //   });
-  // }
   
   handleShowModal = (selectedBeast) => {
     this.setState({
@@ -41,7 +34,6 @@ class App extends React.Component {
         <Header />
         <Main data={data} 
           handleShowModal={this.handleShowModal}
-          // favorites={this.manageFavorites}
         />
         <SelectedBeast 
           renderModal={this.state.showModal} handleCloseModal={this.handleCloseModal} 
