@@ -45,11 +45,11 @@ class Main extends React.Component {
               <Form.Group>
                 <Form.Label>How Many Horns Do You Like?</Form.Label>
                 <Form.Control as="select" onChange={this.handleChange}>
-                  <option value="0">Select</option>
-                  <option value="1">One Horn</option>
-                  <option value="2">Two Horns</option>
-                  <option value="3">Three Horns</option>
-                  <option value="100">100 Horns</option>
+                  <option value="0">All</option>
+                  <option value="1">UniHornal</option>
+                  <option value="2">BiHornal</option>
+                  <option value="3">TriHornal</option>
+                  <option value="100">HectoHornal</option>
                 </Form.Control>
               </Form.Group>
             </Form>
